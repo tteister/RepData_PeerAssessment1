@@ -108,8 +108,8 @@ myfill.df$steps <- mapply(nafiller, myfill.df$steps, myfill.df$interval)
 ##### 4. Make a histogram of the total number of steps taken each day
 
 ```r
-myts <- tapply(myfill.df$steps, myfill.df$date, FUN = sum)
-qplot(myts, binwidth=1000, xlab="Total Number of Steps per Day",
+myhist <- tapply(myfill.df$steps, myfill.df$date, FUN = sum)
+qplot(myhist, binwidth=1000, xlab="Total Number of Steps per Day",
       main="Total Number of Steps per Day After Imputation" )
 ```
 
@@ -117,15 +117,7 @@ qplot(myts, binwidth=1000, xlab="Total Number of Steps per Day",
 ##### Calculate and report the mean and median total number of steps taken per day.
 
 ```r
-describe(myts)
-```
-
-```
-## Error in rep(NA, ncol(x) * 10): invalid 'times' argument
-```
-
-```r
-mean(myts)
+mean(myhist)
 ```
 
 ```
@@ -133,7 +125,7 @@ mean(myts)
 ```
 
 ```r
-median(myts)
+median(myhist)
 ```
 
 ```
@@ -141,7 +133,7 @@ median(myts)
 ```
 
 ```r
-summary(myts)
+summary(myhist)
 ```
 
 ```

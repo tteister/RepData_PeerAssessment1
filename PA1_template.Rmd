@@ -65,16 +65,15 @@ myfill.df$steps <- mapply(nafiller, myfill.df$steps, myfill.df$interval)
 ```
 ##### 4. Make a histogram of the total number of steps taken each day
 ```{r}
-myts <- tapply(myfill.df$steps, myfill.df$date, FUN = sum)
-qplot(myts, binwidth=1000, xlab="Total Number of Steps per Day",
+myhist <- tapply(myfill.df$steps, myfill.df$date, FUN = sum)
+qplot(myhist, binwidth=1000, xlab="Total Number of Steps per Day",
       main="Total Number of Steps per Day After Imputation" )
 ```
 ##### Calculate and report the mean and median total number of steps taken per day.
 ```{r}
-describe(myts)
-mean(myts)
-median(myts)
-summary(myts)
+mean(myhist)
+median(myhist)
+summary(myhist)
 ```
 
 #### Do these values differ from the estimates from the first part of the assignment?  What is the impact of imputing missing data on the estimates of the total daily number of steps?
